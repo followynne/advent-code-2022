@@ -6,7 +6,7 @@ To install:
 
 To run, launch on the shell:
 
-`aoc2022-followynne```
+`aoc2022-followynne`
 
 ## Requirements
 
