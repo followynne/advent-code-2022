@@ -1,4 +1,3 @@
-import inquirer from 'inquirer';
 import { inputData } from './input.js';
 
 const firstQuestion_mostCaloriesElf = () => {
@@ -23,13 +22,7 @@ const secondQuestion_3mostCaloriesElves = () => {
 const reduceCaloriesToSum = (inputArray: number[]) =>
   inputArray.reduce((prev, curr) => prev + curr, 0);
 
-export const Solution1 = () => {
-    const ui = new inquirer.ui.BottomBar();
-
-  ui.log.write(1.1);
-  ui.log.write(firstQuestion_mostCaloriesElf());
-  console.groupEnd();
-  console.group(1.2);
-  console.log(secondQuestion_3mostCaloriesElves());
-  console.groupEnd();
+export const Solution1 = {
+  1: firstQuestion_mostCaloriesElf,
+  2: secondQuestion_3mostCaloriesElves,
 };

@@ -1,19 +1,27 @@
-// import { Solution1 } from './1/algo.js';
-//import inquirer from 'inquirer';
+import { Solution1 } from './1/algo.js';
+import inquirer from 'inquirer';
 import { Solution2 } from './2/algo.js';
 
-// const availableDays = { '1': () => Solution1(), '2': () => Solution1(), 'ALL': () => {} } as const;
-// type Days = keyof typeof availableDays;
+export type Solution = {
+  1: () => void;
+  2: () => void;
+};
 
-console.log(Solution2())
-/*
+console.log(Solution2[1]());
+
+const availableDays: Record<string, Solution> = {
+  '1': Solution1,
+  '2': Solution2,
+  ALL: { 1: () => {}, 2: () => {} },
+};
+
+type Days = keyof typeof availableDays;
 inquirer
   .prompt([
     {
       type: 'list',
       choices: [
         ...Object.keys(availableDays),
-        'ALL',
         new inquirer.Separator(),
         'exit',
       ],
@@ -25,13 +33,20 @@ inquirer
   ])
   .then((answers) => {
     const res = answers['selectDay'] as Days;
-    if (Number.isInteger(res)) {
+    const parsedRes = Number.parseInt(res);
+    if (Number.isInteger(parsedRes)) {
+      console.log('help')
       const ui = new inquirer.ui.BottomBar();
-      ui.log.write(availableDays[res]());
-      console.log(availableDays[res]());
-    } else
-    (res === 'ALL') ? 'OK' : process.exit()
-
+      console.log(availableDays[parsedRes])
+      ui.log.write(`${res}.1`);
+      ui.log.write(availableDays[parsedRes]?.[1]());
+      console.groupEnd();
+      console.group(1.2);
+      ui.log.write(`${res}.2`);
+      ui.log.write(availableDays[parsedRes]?.[2]());
+      console.groupEnd();
+    } else res === 'ALL' ? 'OK' : process.exit();
+    return;
     // Use user feedback for... whatever!!
   })
   .catch((error) => {
@@ -41,4 +56,3 @@ inquirer
       // Something else went wrong
     }
   });
-*/

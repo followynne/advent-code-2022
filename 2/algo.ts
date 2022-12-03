@@ -24,6 +24,7 @@ const firstQuestion_PointsFromInput = () => {
     result = next.value;
   } while (true);
 };
+const secondQuestion_PointsFromInput = () => {};
 
 function* generatePoints(input: { entry: string; output: string }[]) {
   let total = 0;
@@ -43,6 +44,7 @@ function* generatePoints(input: { entry: string; output: string }[]) {
   yield total;
 }
 
-export const Solution2 = () => {
-  console.log(firstQuestion_PointsFromInput());
+export const Solution2 = {
+  1: firstQuestion_PointsFromInput,
+  2: secondQuestion_PointsFromInput,
 };
