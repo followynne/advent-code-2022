@@ -1,4 +1,4 @@
-export const input = [
+export const inputData = [
   'GwrhJPDJCZFRcwfZWV',
   'LjnQlqNpjjmpmQlLlqNfZRvQcTWcTSTTZcSQcZ',
   'nNqjdspspngnmjmslqmjjjCDGrHPHMGddGCMCGPPPJWC',
