@@ -1,11 +1,12 @@
-import { Solution1 } from './1/algo.js';
-import inquirer from 'inquirer';
+// import { Solution1 } from './1/algo.js';
+//import inquirer from 'inquirer';
+import { Solution2 } from './2/algo.js';
 
-const availableDays = { '1': () => Solution1(), '2': () => Solution1(), 'ALL': () => {} } as const;
-type Days = keyof typeof availableDays;
+// const availableDays = { '1': () => Solution1(), '2': () => Solution1(), 'ALL': () => {} } as const;
+// type Days = keyof typeof availableDays;
 
-console.log(Solution1())
-
+console.log(Solution2())
+/*
 inquirer
   .prompt([
     {
@@ -21,7 +22,6 @@ inquirer
       message: 'Select the advent-of-code day script to run or exit.',
       name: 'selectDay',
     },
-    /* Pass your questions in here */
   ])
   .then((answers) => {
     const res = answers['selectDay'] as Days;
@@ -41,3 +41,4 @@ inquirer
       // Something else went wrong
     }
   });
+*/

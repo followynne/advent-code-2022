@@ -1,4 +1,4 @@
-const inputData = [
+export const inputData = [
   { entry: 'C', output: 'Z' },
   { entry: 'C', output: 'Z' },
   { entry: 'A', output: 'Y' },
