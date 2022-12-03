@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node-esm index.ts"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,12 @@
   },
   "homepage": "https://github.com/followynne/advent-code-2022#readme",
   "devDependencies": {
+    "@tsconfig/node-lts-strictest-esm": "^18.12.1",
+    "@types/inquirer": "^9.0.3",
     "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "inquirer": "^9.1.4",
+    "ts-node": "^10.9.1"
   }
 }
