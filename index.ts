@@ -7,7 +7,7 @@ export type Solution = {
   2: () => void;
 };
 
-console.log(Solution2[1]());
+console.log(Solution2[2]());
 
 const availableDays: Record<string, Solution> = {
   '1': Solution1,
@@ -29,24 +29,21 @@ inquirer
       default: 'ALL',
       message: 'Select the advent-of-code day script to run or exit.',
       name: 'selectDay',
+
     },
   ])
   .then((answers) => {
     const res = answers['selectDay'] as Days;
     const parsedRes = Number.parseInt(res);
     if (Number.isInteger(parsedRes)) {
-      console.log('help')
       const ui = new inquirer.ui.BottomBar();
-      console.log(availableDays[parsedRes])
-      ui.log.write(`${res}.1`);
-      ui.log.write(availableDays[parsedRes]?.[1]());
-      console.groupEnd();
-      console.group(1.2);
-      ui.log.write(`${res}.2`);
-      ui.log.write(availableDays[parsedRes]?.[2]());
-      console.groupEnd();
+      ui.log.write(`---------- ${res}.1 -------`);
+      ui.log.write(`${JSON.stringify(availableDays[parsedRes]?.[1](), null, 1)}`);
+      ui.log.write(`---------- ${res}.2 --------`);
+      ui.log.write(`${JSON.stringify(availableDays[parsedRes]?.[2](), null, 1)}`);
     } else res === 'ALL' ? 'OK' : process.exit();
-    return;
+
+    process.exit();
     // Use user feedback for... whatever!!
   })
   .catch((error) => {

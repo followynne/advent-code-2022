@@ -2,7 +2,7 @@ import { inputData } from '../2/input.js';
 
 const win = 6;
 const draw = 3;
-const lost = 0;
+const loss = 0;
 
 const rock = { in: 'A', out: 'X' };
 const paper = { in: 'B', out: 'Y' };
@@ -24,7 +24,6 @@ const firstQuestion_PointsFromInput = () => {
     result = next.value;
   } while (true);
 };
-const secondQuestion_PointsFromInput = () => {};
 
 function* generatePoints(input: { entry: string; output: string }[]) {
   let total = 0;
@@ -38,11 +37,40 @@ function* generatePoints(input: { entry: string; output: string }[]) {
     } else if (strategyItem?.wins === obj!.entry) {
       yield (total += strategyItem!.point + win);
     } else {
-      yield (total += strategyItem!.point + lost);
+      yield (total += strategyItem!.point + loss);
     }
   } while (input.length);
   yield total;
 }
+
+/* -------------------------------------- */
+const signs = [
+  { sign: 'Z', val: win },
+  { sign: 'Y', val: draw },
+  { sign: 'X', val: loss },
+];
+
+const secondQuestion_PointsFromInput = () => {
+  let result = 0;
+  inputData.forEach((value) => {
+    const gameResult = signs.find((p) => p.sign === value.output);
+    if (gameResult?.sign === 'Y')
+      result +=
+        gameResult.val +
+        winningStrategy.find((p) => p.step.in === value.entry)!.point;
+    else if (gameResult?.sign === 'Z')
+      result +=
+        gameResult.val +
+        winningStrategy.find((p) => p.wins === value.entry)!.point;
+    else
+      result +=
+        gameResult!.val +
+        winningStrategy.find(
+          (p) => p.wins !== value.entry && p.step.in != value.entry,
+        )!.point;
+  });
+  return result;
+};
 
 export const Solution2 = {
   1: firstQuestion_PointsFromInput,
