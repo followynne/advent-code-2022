@@ -1,6 +1,8 @@
 import { inputData } from './input.js';
 
-const firstQuestion = () => {};
+const firstQuestion = () => {
+  console.log(inputData.length)
+};
 
 /* -------------------------------------- */
 

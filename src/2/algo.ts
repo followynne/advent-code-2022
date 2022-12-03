@@ -15,7 +15,7 @@ const winningStrategy = [
 ];
 
 const firstQuestion_PointsFromInput = () => {
-  const gen = generatePoints(inputData);
+  const gen = generatePoints([...inputData]);
 
   let result = 0;
   do {
