@@ -1,6 +1,7 @@
 import { Solution1 } from './1/algo.js';
 import inquirer from 'inquirer';
 import { Solution2 } from './2/algo.js';
+import { Solution3 } from './3/algo.js';
 
 export type Solution = {
   1: () => void;
@@ -12,6 +13,7 @@ console.log(Solution2[2]());
 const availableDays: Record<string, Solution> = {
   '1': Solution1,
   '2': Solution2,
+  '3': Solution3,
   ALL: { 1: () => {}, 2: () => {} },
 };
 
