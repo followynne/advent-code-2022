@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/followynne/advent-code-2022/compare/v1.0.0...v1.0.1) (2022-12-03)
+
+
+### Performance Improvements
+
+* add release action ([120e968](https://github.com/followynne/advent-code-2022/commit/120e96872731e13f014a71d4e9e4b31011fc8686))
+* add release action ([62a5e8d](https://github.com/followynne/advent-code-2022/commit/62a5e8d217c3ad2c871dae3db7e106560e8dc8e2))
+
 ## 1.0.0 (2022-12-03)
 
 
