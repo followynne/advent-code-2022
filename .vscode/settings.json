@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///workspaces/advent-code-2022/.github/worflows/release.yml"
+    }
+}
