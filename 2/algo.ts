@@ -15,12 +15,10 @@ const winningStrategy = [
 ];
 
 const firstQuestion_PointsFromInput = () => {
-  const gen = generatePoints(inputData.slice(0, 5));
+  const gen = generatePoints(inputData);
   let result = 0;
   do {
     const next = gen.next();
-    console.log(next.value);
-    debugger;
     if (!next.value) break;
     result = next.value;
   } while (true);
@@ -31,22 +29,20 @@ const firstQuestion_PointsFromInput = () => {
 
 function* generatePoints(input: { entry: string; output: string }[]) {
   let total = 0;
-  for (const { entry, output } of input) {
-    const strategyItem = winningStrategy.find((w) => output === w.step.out);
-    console.log(entry, output);
-    if (strategyItem?.step.in! === entry) {
-      console.log('draw');
+  do {
+    const obj = input.pop();
+    const strategyItem = winningStrategy.find(
+      (w) => obj!.output === w.step.out,
+    );
+    if (strategyItem?.step.in! === obj!.entry) {
       yield (total += strategyItem!.point + draw);
-    } else if (strategyItem?.wins === entry) {
-      console.log('win');
+    } else if (strategyItem?.wins === obj!.entry) {
       yield (total += strategyItem!.point + win);
     } else {
-      console.log('lost');
-
       yield (total += strategyItem!.point + lost);
     }
-  }
-  return total;
+  } while (input.length);
+  yield total;
 }
 
 export const Solution2 = () => {
