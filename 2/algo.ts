@@ -16,15 +16,13 @@ const winningStrategy = [
 
 const firstQuestion_PointsFromInput = () => {
   const gen = generatePoints(inputData);
+
   let result = 0;
   do {
     const next = gen.next();
-    if (!next.value) break;
+    if (!next.value) return result;
     result = next.value;
   } while (true);
-
-  return result;
-  // inputData.reduce((prev, curr) => generatePoints(curr) + prev, 0);
 };
 
 function* generatePoints(input: { entry: string; output: string }[]) {
