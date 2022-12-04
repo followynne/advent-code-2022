@@ -26,14 +26,15 @@ const promptQuestion = () => inquirer
   .prompt([
     {
       type: 'list',
-      message: 'Select the advent-of-code day to run!',
+      message: 'Select the advent-of-code day to run! Single-day contains debug and algorithm comments, ALL will print out all the results',
       name: 'selectDay',
       choices: [
         ...Object.keys(availableDays),
         new inquirer.Separator(),
         'exit',
       ],
-      default: 'ALL',
+      loop: false,
+      default: Object.keys(availableDays).filter(p => Number.isInteger(Number.parseInt(p))).sort().at(-1),
     },
   ])
   .then((answers) => {
@@ -69,7 +70,7 @@ const printDayResult = (ui: inquirer.ui.BottomBar, parsedRes: number) => {
 }
 
 do {
-  const res = await promptQuestion()
+  const res = await promptQuestion();
   if (!res) break;
 } while (true)
 
