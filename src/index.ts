@@ -3,6 +3,8 @@ import inquirer from 'inquirer';
 import { Solution1 } from './1/algo.js';
 import { Solution2 } from './2/algo.js';
 import { Solution3 } from './3/algo.js';
+import { Solution4 } from './4/algo.js';
+import { Solution5 } from './5/algo.js';
 
 export type Solution = {
   1: () => void;
@@ -13,6 +15,8 @@ const availableDays: Record<string, Solution> = {
   '1': Solution1,
   '2': Solution2,
   '3': Solution3,
+  '4': Solution4,
+  '5': Solution5,
   ALL: { 1: () => { }, 2: () => { } },
 };
 
@@ -22,15 +26,15 @@ const promptQuestion = () => inquirer
   .prompt([
     {
       type: 'list',
-      message: 'Select the advent-of-code day to run!',
+      message: 'Select the advent-of-code day to run! Single-day contains debug and algorithm comments, ALL will print out all the results',
       name: 'selectDay',
       choices: [
         ...Object.keys(availableDays),
         new inquirer.Separator(),
         'exit',
       ],
-      default: 'ALL',
-      loop: true,
+      loop: false,
+      default: Object.keys(availableDays).filter(p => Number.isInteger(Number.parseInt(p))).sort().at(-1),
     },
   ])
   .then((answers) => {
@@ -66,7 +70,7 @@ const printDayResult = (ui: inquirer.ui.BottomBar, parsedRes: number) => {
 }
 
 do {
-  const res = await promptQuestion()
+  const res = await promptQuestion();
   if (!res) break;
 } while (true)
 
