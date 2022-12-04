@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/followynne/advent-code-2022/compare/v1.0.3...v1.0.4) (2022-12-04)
+
+
+### Performance Improvements
+
+* **4:** algos ([#5](https://github.com/followynne/advent-code-2022/issues/5)) ([3b16d74](https://github.com/followynne/advent-code-2022/commit/3b16d7432b0abd9ac4f8ed3acdd6855bc970958c))
+
 ## [1.0.3](https://github.com/followynne/advent-code-2022/compare/v1.0.2...v1.0.3) (2022-12-04)
 
 
