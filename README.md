@@ -10,6 +10,10 @@ To run, launch on the shell:
 
 `aoc2022-followynne`
 
+If you want to get the day inputs cleaned&formatted in a javascript array, feel free to browse the source code under:
+
+`src/{day}/input.ts`
+
 ## Requirements
 
 - Node min v.16
