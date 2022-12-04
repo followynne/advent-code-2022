@@ -1,5 +1,7 @@
 # advent-code-2022
 
+![NPM](https://img.shields.io/npm/l/advent-code-2022-followynne) ![npm](https://img.shields.io/npm/v/advent-code-2022-followynne) ![npm](https://img.shields.io/npm/dt/advent-code-2022-followynne)
+
 To install:
 
 `npm i -g advent-code-2022-followynne`

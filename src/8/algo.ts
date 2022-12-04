@@ -10,7 +10,7 @@ const secondQuestion = () => {
   return Number.NaN + inputData.length;
 };
 
-export const Solution5 = {
+export const Solution8 = {
   1: firstQuestion,
   2: secondQuestion,
 };
