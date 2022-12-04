@@ -2,7 +2,7 @@
   "name": "advent-code-2022-followynne",
   "description": "Advent of Code 2022 - CLI package with results and applied solutions debug",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "bin": {
     "aoc2022-followynne": "dist/index.js"

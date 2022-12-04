@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/followynne/advent-code-2022/compare/v1.0.1...v1.0.2) (2022-12-04)
+
+
+### Bug Fixes
+
+* **CLI:** improve solution options ([9d30014](https://github.com/followynne/advent-code-2022/commit/9d3001450c30a8caaac34566e8f3b7dd8fb25f78))
+
 ## [1.0.1](https://github.com/followynne/advent-code-2022/compare/v1.0.0...v1.0.1) (2022-12-03)
 
 
