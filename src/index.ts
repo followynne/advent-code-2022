@@ -26,16 +26,45 @@ const promptQuestion = () => inquirer
   .prompt([
     {
       type: 'list',
-      message: 'Select the advent-of-code day to run! Single-day contains debug and algorithm comments, ALL will print out all the results',
+      message: 'Select the advent-of-code day to run or run the algo on your raw input! ' +
+        'Solve my case: pass day and a file path to the raw input received from the website and wait for the solution;' +
+        'Single-day contains debug and algorithm comments, ALL will print out all the results I got.',
       name: 'selectDay',
       choices: [
         ...Object.keys(availableDays),
         new inquirer.Separator(),
+        'solve my case',
         'exit',
       ],
       loop: false,
       default: Object.keys(availableDays).filter(p => Number.isInteger(Number.parseInt(p))).sort().at(-1),
     },
+    {
+      name: 'Solve my case',
+      type: 'number',
+      choices: [{
+        key: 'day',
+        name: 'On which day?',
+
+      }],
+      when(answers) {
+        const res = answers['selectDay'];
+        res === 'solve my case'
+      },
+    },
+    {
+      name: 'Solve my case 2',
+      type: 'input',
+      choices: [{
+        key: 'file-path',
+        name: 'File path of the input file, saved as .txt',
+
+      }],
+      when(answers) {
+        const res = answers['selectDay'];
+        res === 'solve my case'
+      },
+    }
   ])
   .then((answers) => {
     const ui = new inquirer.ui.BottomBar();
@@ -51,6 +80,7 @@ const promptQuestion = () => inquirer
       });
       return true
     }
+    console.table(res)
     return false
   })
   .catch((error) => {
