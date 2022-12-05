@@ -7,8 +7,8 @@ import { Solution4 } from './4/algo.js';
 import { Solution5 } from './5/algo.js';
 
 export type Solution = {
-  1: () => void;
-  2: () => void;
+  1: (debug: boolean) => void;
+  2: (debug: boolean) => void;
 };
 
 const availableDays: Record<string, Solution> = {
@@ -42,7 +42,7 @@ const promptQuestion = () => inquirer
     const res = answers['selectDay'] as Days;
     const parsedRes = Number.parseInt(res);
     if (Number.isInteger(parsedRes)) {
-      printDayResult(ui, parsedRes);
+      printDayResult(ui, parsedRes, true);
       return true;
     }
     if (res === 'ALL') {
@@ -61,11 +61,11 @@ const promptQuestion = () => inquirer
     }
   });
 
-const printDayResult = (ui: inquirer.ui.BottomBar, parsedRes: number) => {
+const printDayResult = (ui: inquirer.ui.BottomBar, parsedRes: number, debug = false) => {
   ui.log.write(`---------- ${parsedRes}.1 -------`);
-  ui.log.write(`${JSON.stringify(availableDays[parsedRes]?.[1](), null, 1)}`);
+  ui.log.write(`${JSON.stringify(availableDays[parsedRes]?.[1](debug), null, 1)}`);
   ui.log.write(`---------- ${parsedRes}.2 --------`);
-  ui.log.write(`${JSON.stringify(availableDays[parsedRes]?.[2](), null, 1)}`);
+  ui.log.write(`${JSON.stringify(availableDays[parsedRes]?.[2](debug), null, 1)}`);
   ui.log.write(new inquirer.Separator)
 }
 
