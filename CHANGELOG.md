@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/followynne/advent-code-2022/compare/v1.0.5...v1.0.6) (2022-12-06)
+
+
+### Performance Improvements
+
+* **6:** day 6 algos ([#11](https://github.com/followynne/advent-code-2022/issues/11)) ([34457be](https://github.com/followynne/advent-code-2022/commit/34457bec55ac5d598c52dfcaca75f0c05227fde7))
+
 ## [1.0.5](https://github.com/followynne/advent-code-2022/compare/v1.0.4...v1.0.5) (2022-12-05)
 
 
