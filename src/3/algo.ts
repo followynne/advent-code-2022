@@ -1,4 +1,5 @@
 import { inputData } from '../3/input.js';
+import { onlyUnique } from '../util/filters.js';
 
 const firstQuestion = () => {
   let result = 0;
@@ -40,10 +41,6 @@ const secondQuestion = () => {
   } while (data.length);
   return result;
 };
-
-function onlyUnique(value: string, index: number, self: string[]) {
-  return self.indexOf(value) === index;
-}
 
 export const Solution3 = {
   1: firstQuestion,

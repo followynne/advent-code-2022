@@ -5,6 +5,7 @@ import { Solution2 } from './2/algo.js';
 import { Solution3 } from './3/algo.js';
 import { Solution4 } from './4/algo.js';
 import { Solution5 } from './5/algo.js';
+import { Solution6 } from './6/algo.js';
 
 export type Solution = {
   1: (debug: boolean) => void;
@@ -17,6 +18,7 @@ const availableDays: Record<string, Solution> = {
   '3': Solution3,
   '4': Solution4,
   '5': Solution5,
+  '6': Solution6,
   ALL: { 1: () => { }, 2: () => { } },
 };
 
